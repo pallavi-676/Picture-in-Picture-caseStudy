@@ -119,13 +119,13 @@ src/
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone <pallavi-676/picture-in-picture>
 ```
 
 Navigate to the project:
 
 ```bash
-cd picture-in-picture-workspace-utility
+cd picture-in-picture
 ```
 
 Install dependencies:
