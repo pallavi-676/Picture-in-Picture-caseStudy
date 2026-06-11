@@ -10,7 +10,7 @@ The application allows users to detach workspace modules such as Notes, Stopwatc
 
 | Item | Link |
 |--------|--------|
-| 🚀 Live Demo | https://YOUR-VERCEL-LINK.vercel.app |
+| 🚀 Live Demo | https://picture-in-picture-a9pqg1qpg-pallavi-676s-projects.vercel.app/ |
 | 💻 GitHub Repository | https://github.com/pallavi-676/Picture-in-Picture |
 | ⚛️ Frontend Framework | React + Vite |
 | 🗂️ State Management | Zustand |
