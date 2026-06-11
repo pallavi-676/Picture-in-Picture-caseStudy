@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #EAE5C7;
+  --color-sand: #E8D6B8;
+  --color-mist: #BFDDF0;
+  --color-sky: #86B4DA;
+
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-sans: "Times New Roman", Times, Georgia, serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+}
+
+@layer base {
+  html, body {
+    @apply font-serif text-neutral-800 bg-cream m-0 min-h-screen antialiased;
+  }
+  
+  #root {
+    @apply min-h-screen flex flex-col;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium tracking-tight text-neutral-900;
+  }
+}
+
+@layer utilities {
+  .enterprise-card {
+    @apply bg-white border border-mist shadow-sm rounded-xl overflow-hidden transition-all duration-300;
+  }
+  
+  .enterprise-card:hover {
+    @apply shadow-md border-sky -translate-y-0.5;
+  }
+  
+  .enterprise-input {
+    @apply border border-mist rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky focus:border-transparent transition-all bg-white;
+  }
+  
+  .enterprise-button {
+    @apply inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky;
+  }
+  
+  .enterprise-button-primary {
+    @apply bg-sky text-white hover:opacity-90 shadow-sm;
+  }
+  
+  .enterprise-button-secondary {
+    @apply bg-mist text-neutral-800 hover:opacity-80;
+  }
+
+  .enterprise-button-danger {
+    @apply bg-red-50 text-red-700 border border-red-200 hover:bg-red-100;
+  }
+}
