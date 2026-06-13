@@ -1,186 +1,129 @@
-# Picture-in-Picture Workspace Utility
+# Picture-In-Picture Overlay Workspace Utility
 
-A modern productivity workspace built with **React, Vite, Zustand, Tailwind CSS, WebRTC APIs, and the Document Picture-in-Picture API**.
+## Case Study Project
 
-The application allows users to detach workspace modules such as Notes, Stopwatch, and Media Streams into native always-on-top floating windows while maintaining real-time synchronization with the main application. The Document Picture-in-Picture API enables arbitrary HTML content—not just videos—to be displayed in floating windows, making it ideal for productivity-focused web applications. :contentReference[oaicite:0]{index=0}
+A frontend-only ReactJS application that demonstrates the practical implementation of the **Document Picture-in-Picture API** and **Picture-in-Picture API** for creating detachable productivity workspaces.
+
+The application allows users to move workspace modules such as Notes, Stopwatch, and Media Stream Viewers into always-on-top floating windows while maintaining real-time synchronization with the primary application.
 
 ---
 
-## 🔗 Project Information
+## 📖 Case Study Overview
 
-| Item | Link |
-|--------|--------|
-| 🚀 Live Demo | https://picture-in-picture-a9pqg1qpg-pallavi-676s-projects.vercel.app/ |
-| 💻 GitHub Repository | https://github.com/pallavi-676/Picture-in-Picture |
-| ⚛️ Frontend Framework | React + Vite |
-| 🗂️ State Management | Zustand |
-| 🎨 Styling | Tailwind CSS |
-| 🪟 Core Feature | Document Picture-in-Picture API |
-| 💾 Persistence | LocalStorage |
-| 📡 Media Support | Screen Share, Webcam, Video Upload |
+Modern productivity workflows often require users to switch between multiple browser tabs and applications. Important information such as notes, timers, and media streams can become hidden behind other windows, reducing productivity and focus.
+
+The **Picture-In-Picture Overlay Workspace Utility** addresses this challenge by allowing workspace components to be detached into floating overlay windows that remain visible while users continue working in other applications.
+
+The project demonstrates how modern browser APIs can be used to create lightweight productivity tools without requiring backend infrastructure.
+
+---
+
+## 🎯 Objectives
+
+- Implement the Document Picture-in-Picture API.
+- Create detachable React workspace modules.
+- Maintain synchronization between main and floating windows.
+- Support webcam and screen-sharing capabilities.
+- Provide local workspace persistence.
+- Enable workspace export and restore functionality.
+- Demonstrate advanced browser API integration.
+- Operate entirely on the client side.
 
 ---
 
 ## ✨ Features
 
-### 📝 Workspace Notes
+### Dashboard Workspace
+- Workspace overview
+- Browser capability detection
+- PiP status monitoring
+- Session statistics
+- Recent activity tracking
+
+### Floating Notes Widget
 - Rich text note-taking
 - Checklist management
 - Real-time synchronization
-- Persistent storage using LocalStorage
-- PiP-compatible editing experience
-
-### ⏱️ Focus Stopwatch
-- Start, pause, and reset functionality
-- Session tracking
-- Real-time synchronization between windows
-- Floating PiP stopwatch mode
-
-### 🎥 Universal Media Stream Viewer
-- Screen sharing support
-- Webcam streaming
-- Local video uploads
-- Stream persistence during PiP transitions
-- Stream information monitoring
-
-### 🪟 Document Picture-in-Picture
-- Native always-on-top floating windows
-- Widget detachment system
-- Independent workspace windows
-- Window resizing support
-- State synchronization across windows
-
-### 📊 Telemetry Analytics
-- Real-time event logging
-- PiP activity tracking
-- Media activity monitoring
-- System event monitoring
-- Categorized logs
-
-### 💾 Workspace Management
-- Export workspace configuration
-- Import workspace configuration
-- Restore previous session
-- Reset workspace state
 - LocalStorage persistence
 
-### 📈 Dashboard Overview
-- Workspace status
-- Browser capability detection
-- PiP support verification
-- Synchronization monitoring
-- Workspace statistics
+### Focus Stopwatch Widget
+- Start, pause, and reset controls
+- Session tracking
+- PiP synchronization
+
+### Universal Media Stream Viewer
+- Webcam support
+- Screen sharing
+- Video upload support
+- Stream monitoring
+- PiP compatibility
+
+### Telemetry Console
+- System event logging
+- Media event tracking
+- PiP lifecycle monitoring
+- Workspace activity tracking
+
+### Workspace Management
+- Export workspace configuration
+- Restore workspace state
+- Local session persistence
 
 ---
 
-## 🛠️ Technologies Used
-
-- React.js
-- Vite
-- Zustand
-- Tailwind CSS
-- Lucide React
-- Document Picture-in-Picture API
-- WebRTC APIs
-- Screen Capture API
-- MediaDevices API
-- LocalStorage API
-
----
-
-## 🏗️ Project Structure
+## 🏗️ System Architecture
 
 ```text
-src/
-│
-├── components/
-│   ├── UtilityManager.jsx
-│   ├── OverlayArchitectureSelector.jsx
-│   ├── WorkspaceStage.jsx
-│   ├── FloatingNotesWidget.jsx
-│   ├── StopwatchWidget.jsx
-│   ├── ScreenShareWidget.jsx
-│   ├── TelemetryConsole.jsx
-│   └── TransportActionStrip.jsx
-│
-├── hooks/
-│   └── usePictureInPicture.js
-│
-├── store/
-│   └── workspaceStore.js
-│
-├── utils/
-│   └── styleCloner.js
-│
-├── App.jsx
-└── main.jsx
+User Interface
+       │
+       ▼
+React Components
+       │
+       ▼
+Zustand Store
+       │
+       ▼
+Browser APIs
+       │
+       ▼
+LocalStorage
 ```
+
+The application follows a frontend-only architecture and does not require any backend server or database.
 
 ---
 
-## 🚀 Installation
+## 🛠️ Technology Stack
 
-### Clone Repository
-
-```bash
-git clone https://github.com/pallavi-676/Picture-in-Picture.git
-```
-
-### Navigate Into Project
-
-```bash
-cd Picture-in-Picture
-```
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Run Development Server
-
-```bash
-npm run dev
-```
-
-### Build Production Version
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
+| Technology | Purpose |
+|------------|----------|
+| ReactJS | Frontend Framework |
+| Vite | Build Tool |
+| Zustand | State Management |
+| Tailwind CSS | Styling |
+| LocalStorage | Persistence |
+| Document PiP API | Floating Workspaces |
+| MediaDevices API | Webcam Access |
+| Screen Capture API | Screen Sharing |
 
 ---
 
-## 🪟 How Document Picture-in-Picture Works
+## 🪟 Document Picture-in-Picture
 
-This project uses the browser's native Document Picture-in-Picture API.
+The project uses the browser's native Document Picture-in-Picture API to create floating windows capable of rendering complete React components.
 
-```javascript
-const pipWindow =
-  await window.documentPictureInPicture.requestWindow({
-    width: 450,
-    height: 500,
-  });
-```
+When a widget is detached:
 
-The API enables opening a floating always-on-top window containing arbitrary HTML content instead of being limited to only video elements. This allows Notes, Stopwatch, and Media widgets to run independently while remaining synchronized with the main application. :contentReference[oaicite:1]{index=1}
+1. A PiP window is created.
+2. Stylesheets are cloned.
+3. React components are rendered inside the floating window.
+4. State synchronization is maintained through Zustand.
+
+This allows users to keep important workspace tools visible at all times.
 
 ---
 
-## 📡 Media Features
-
-### Screen Sharing
-
-```javascript
-navigator.mediaDevices.getDisplayMedia()
-```
+## 📡 Media Support
 
 ### Webcam Streaming
 
@@ -188,147 +131,138 @@ navigator.mediaDevices.getDisplayMedia()
 navigator.mediaDevices.getUserMedia()
 ```
 
+### Screen Sharing
+
+```javascript
+navigator.mediaDevices.getDisplayMedia()
+```
+
 ### Video Upload
 
-Users can upload and view local video files directly within the workspace.
+Users can upload and monitor local video files directly within the workspace.
 
 ---
 
-## 💾 Import / Export System
+## 💾 Persistence System
 
-### Export
+The application uses LocalStorage to preserve:
 
-Exports:
-
-- Active workspace tab
 - Notes
 - Checklist items
-- Stopwatch state
-- PiP preferences
+- Active workspace
+- User preferences
+- Workspace settings
 
-### Import
-
-Imports previously exported workspace configuration files.
-
-### Restore
-
-Restores the most recent saved workspace from LocalStorage.
-
-### Reset
-
-Resets the workspace to its default state.
+This allows users to restore their workspace after refreshing or reopening the application.
 
 ---
 
-## 📊 Telemetry System
+## 🚀 Installation
 
-The application tracks:
+Clone the repository:
 
-- System events
-- PiP events
-- Media events
-- Workspace actions
-- Import/Export activity
+```bash
+git clone https://github.com/pallavi-676/Picture-in-Picture.git
+```
 
-Telemetry data is displayed in real time through the Telemetry Analytics panel.
+Navigate into the project:
 
----
+```bash
+cd Picture-in-Picture
+```
 
-## 🎨 Design Philosophy
+Install dependencies:
 
-The interface follows a premium editorial workspace design:
+```bash
+npm install
+```
 
-- Soft neutral palette
-- Serif typography
-- Spacious layouts
-- Focus-oriented workflow
-- Minimal distractions
-- Productivity-first interface
+Start development server:
 
----
+```bash
+npm run dev
+```
 
-## 🌐 Browser Support
+Build production version:
 
-| Browser | Support |
-|----------|----------|
-| Chrome 116+ | ✅ |
-| Edge 116+ | ✅ |
-| Firefox | ❌ |
-| Safari | ❌ |
-
-> Document Picture-in-Picture currently requires Chromium-based browsers. :contentReference[oaicite:2]{index=2}
+```bash
+npm run build
+```
 
 ---
 
-## 🔒 Privacy
+## 🌐 Live Demo
 
-This application:
+**Live Application:**  
+[live link](https://picture-in-picture-i1wc8mlnn-pallavi-676s-projects.vercel.app/)
 
-- Runs entirely in the browser
-- Uses no backend services
-- Requires no user account
-- Stores data locally
-- Does not transmit workspace data to external servers
+**GitHub Repository:**  
+https://github.com/pallavi-676/Picture-in-Picture
 
 ---
 
-## 🧪 Testing Checklist
+## 🧪 Testing
 
-### Notes
-- Create notes
-- Edit notes
-- Synchronize with PiP
+The following modules were tested:
 
-### Stopwatch
-- Start timer
-- Pause timer
-- Reset timer
-- Verify PiP synchronization
+### Notes Module
+- Note creation
+- Editing
+- Synchronization
 
-### Media
-- Screen sharing
+### Stopwatch Module
+- Start
+- Pause
+- Reset
+- PiP synchronization
+
+### Media Viewer
 - Webcam streaming
-- Video uploads
-- PiP media rendering
+- Screen sharing
+- Video upload
 
-### Workspace
-- Export configuration
-- Import configuration
-- Restore session
-- Reset workspace
+### Picture-in-Picture
+- Window creation
+- Widget detachment
+- State synchronization
 
-### PiP
-- Open floating window
-- Resize floating window
-- Close floating window
-- Restore widget to main workspace
+### Persistence
+- Export
+- Restore
+- LocalStorage recovery
 
 ---
 
-## 🔮 Future Enhancements
+## Advantages
 
-- Multiple simultaneous PiP widgets
-- Custom dashboard layouts
-- Theme switching
-- Session analytics
-- Keyboard shortcuts
-- Progressive Web App support
-- Cloud synchronization
-- Collaborative workspaces
+- Frontend-only architecture
+- Lightweight implementation
+- No backend dependency
+- Real-time synchronization
+- Modern browser API integration
+- Improved multitasking experience
 
 ---
 
-## 👩‍💻 Author
+## Limitations
 
-**Pallavi Sarovar**
+- Requires Chromium-based browsers.
+- Active media streams cannot be automatically restored after refresh.
+- Single active PiP workspace limitation.
 
-Frontend project demonstrating advanced browser APIs including:
+---
 
-- Document Picture-in-Picture API
-- React Portals
-- Zustand State Management
-- WebRTC Media APIs
-- Modern React Architecture
+## Conclusion
 
+The Picture-In-Picture Overlay Workspace Utility demonstrates how modern browser technologies such as the Document Picture-in-Picture API, Zustand state management, LocalStorage persistence, and ReactJS can be combined to create detachable productivity workspaces.
 
+The project serves as a practical case study in advanced frontend engineering, browser API integration, and productivity-focused application design.
 
+---
+
+## Author
+
+**Pallavi Sarovar**  
+Roll Number: **150096725219**
+
+Case Study Project – School of Future Tech
